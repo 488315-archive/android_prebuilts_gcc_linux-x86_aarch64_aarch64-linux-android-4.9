@@ -1,6 +1,5 @@
 #!/usr/bin/python
 
-from __future__ import print_function
 import os
 import sys
 
@@ -25,7 +24,7 @@ class CompilerWrapper():
       compiler = os.path.basename(os.path.abspath(__file__))
     self.real_compiler = os.path.join(
         compiler_path,
-        "4dd9dcb4-6231-11e9-8831-03cf79688cdb")
+        "real-" + compiler)
     self.argv0 = self.real_compiler
 
   def process_gomacc_command(self):
@@ -49,8 +48,6 @@ class CompilerWrapper():
 
   def add_flags(self):
     self.args = self.prepend_flags + self.args + self.append_flags
-
-
 
   def invoke_compiler(self):
     self.set_real_compiler()
